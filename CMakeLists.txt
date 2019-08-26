@@ -3,4 +3,4 @@ project(anti_reverse)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(anti_reverse main.cpp)
+add_executable(anti_reverse main.cpp BlockDebugger.cpp BlockDebugger.h)
