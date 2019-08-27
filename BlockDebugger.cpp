@@ -8,17 +8,17 @@
 static BlockDebugger instance;
 
 BlockDebugger::BlockDebugger() {
-    std::cerr << "BlockDebugger()" << std::endl;
+    //std::cerr << "BlockDebugger()" << std::endl;
     blockDebugger();
 }
 
 bool BlockDebugger::blockDebugger() {
     if (ptrace(PT_TRACE_ME, 0, nullptr, nullptr) < 0) {
-        std::cerr << "Runs under debugger.. : " << strerror(errno) << std::endl;
+        std::cerr << "ptrace failed: runs under debugger? : " << strerror(errno) << std::endl;
         return true;
         //abort();
     } else {
-        std::cerr << "Not runs under debugger.." << std::endl;
+        std::cerr << "ptrace succeeded: not runs under debugger." << std::endl;
     }
     return false;
 }

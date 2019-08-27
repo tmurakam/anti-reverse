@@ -4,6 +4,7 @@
 #include "BlockDebugger.h"
 
 int main() {
+    /*
     pid_t child = fork();
     if (child > 0) {
         std::cout << "I am parent, parent pid = " << getpid() << ", child pid = " << child << std::endl;
@@ -15,5 +16,6 @@ int main() {
     while (true) {
         sleep(100);
     }
+    */
     return 0;
 }
