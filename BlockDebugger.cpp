@@ -1,5 +1,8 @@
 #include <iostream>
 #include <sys/ptrace.h>
+#include <string.h>
+#include <errno.h>
+
 #include "BlockDebugger.h"
 
 static BlockDebugger instance;
@@ -11,7 +14,7 @@ BlockDebugger::BlockDebugger() {
 
 bool BlockDebugger::blockDebugger() {
     if (ptrace(PT_TRACE_ME, 0, nullptr, nullptr) < 0) {
-        std::cerr << "Runs under debugger.." << std::endl;
+        std::cerr << "Runs under debugger.. : " << strerror(errno) << std::endl;
         return true;
         //abort();
     } else {
