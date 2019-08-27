@@ -1,15 +1,17 @@
 NAME = anti-reverse
+DOCKER = docker
+#DOCKER = podman
 
 all: image
 
 image:
-	docker build -t $(NAME) .
+	$(DOCKER) build -t $(NAME) .
 
 rmi:
-	docker image rm $(NAME)
+	$(DOCKER) image rm $(NAME)
 
 bash:
-	docker container run -it --rm /bin/bash
+	$(DOCKER) container run -it --rm $(NAME) /bin/bash
 
 start:
-	docker container run -d $(NAME)
+	$(DOCKER) container run -d $(NAME)
